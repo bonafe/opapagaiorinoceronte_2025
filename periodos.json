@@ -1,0 +1,61 @@
+{"periodos":[{
+    "nome": "amanhecer",
+    "imagem": "./imagens/amanhecer.png",
+    "inicio": 5,
+    "fim": 8,
+    "cores": {
+      "fundo_titulo": "rgba(100, 100, 120, 0.6)",
+      "texto_titulo": "#ffeaa7",
+      "fundo_body": "#fdcb6e",
+      "fundo_sobre": "rgba(255,255,255,0.3)",
+      "texto_sobre": "#2d3436",
+      "fundo_rodape": "rgba(255,255,0,0.3)",
+      "texto_rodape": "black" 
+    }
+  },
+  {
+    "nome": "dia",
+    "imagem": "./imagens/dia.png",
+    "inicio": 8,
+    "fim": 17,
+    "cores": {
+      "fundo_titulo": "rgba(0, 184, 148, 0.6)",
+      "texto_titulo": "#ffffff",
+      "fundo_body": "#dfe6e9",
+      "fundo_sobre": "rgba(255,255,255,0.6)",
+      "texto_sobre": "#2d3436",
+      "fundo_rodape": "rgba(0,0,255,0.3)",
+      "texto_rodape": "white" 
+    }
+  },
+  {
+    "nome": "entardecer",
+    "imagem": "./imagens/entardecer.png",
+    "inicio": 17,
+    "fim": 19,
+    "cores": {
+      "fundo_titulo": "rgba(225, 112, 85, 0.6)",
+      "texto_titulo": "#ffffff",
+      "fundo_body": "#ffeaa7",
+      "fundo_sobre": "rgba(255,255,255,0.5)",
+      "texto_sobre": "#2d3436",
+      "fundo_rodape": "rgba(255,0,0,0.3)",
+      "texto_rodape": "white"      
+    }
+  },
+  {
+    "nome": "noite",
+    "imagem": "./imagens/noite.png",
+    "inicio": 19,
+    "fim": 5,
+    "cores": {
+      "fundo_titulo": "rgba(9, 132, 227, 0.6)",
+      "texto_titulo": "#ffffff",
+      "fundo_body": "#2d3436",
+      "fundo_sobre": "rgba(255,255,255,0.1)",
+      "texto_sobre": "#dfe6e9",
+      "fundo_rodape": "rgba(0,0,0,0.3)",
+      "texto_rodape": "white"
+    }
+  }
+]}

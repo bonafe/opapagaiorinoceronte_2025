@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="tocarTom()">Tocar Tom (440Hz)</button>
+
+<script>
+    //intervalo de tempo para tocar automaticamente
+
+
+    setInterval(tocarTom, 3000); // toca a cada segundo
+function tocarTom() {
+  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  const oscillator = audioCtx.createOscillator();
+  const gainNode = audioCtx.createGain();
+
+  oscillator.type = 'sawtooth'; // 'sine', 'square', 'triangle', 'sawtooth'
+  oscillator.frequency.value = 200; // frequência em Hz (440 = Lá)
+
+  oscillator.connect(gainNode);
+  gainNode.connect(audioCtx.destination);
+
+  oscillator.start();
+  gainNode.gain.setValueAtTime(0.01, audioCtx.currentTime); // volume de 0 a 1
+
+  // parar depois de 1 segundo
+  oscillator.stop(audioCtx.currentTime + 1);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>O Papagaio Rinoceronte</title>
+
+  <style>
+    :root {
+      --fundo-titulo: #ffeaa7;
+      --texto-titulo: white;
+      --fundo-body: #fdcb6e;
+      --fundo-sobre: rgba(255, 255, 255, 0.3);
+      --texto-sobre: #2d3436;
+      --fundo-rodape: #dfe6e9;
+      --texto-rodape: #2d3436;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: var(--fundo-body);
+
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+    }
+
+    header {
+      background-color: var(--fundo-titulo);
+      color: var(--texto-titulo);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    section {
+      background-color: var(--fundo-sobre);
+      color: var(--texto-sobre);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      background-color: var(--fundo-rodape);
+      color: var(--texto-rodape);
+    }
+
+    @media (max-width: 600px) {
+
+      header,
+      main,
+      footer {
+        padding: 1rem;
+      }
+
+      h1,
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+
+
+    button {
+      background-color: var(--fundo-titulo);
+      color: var(--texto-titulo);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+      filter: brightness(1.1);
+    }
+
+    #acao {
+      position: fixed;
+      bottom: 8px;
+      right: 12px;
+      font-size: 1rem;
+      background-color: rgba(255, 0, 0, 0.3);
+      /* leve transparência */
+      color: black;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      font-weight: bold;
+      font-style: italic;
+      z-index: 9999;
+      transition: all 0.3s ease;
+    }
+
+    #acao:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+      filter: brightness(1.1);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Bem-vindo ao sítio do Papagaio Rinoceronte na Internet</h1>
+  </header>
+  <main>
+    <section>
+      <h2>O Papagaio Rinoceronte</h2>
+      <p>O domínio <strong>opapagaiorinoceronte.net</strong> foi registrado em 2005 pelo artista Bonafé para ser um
+        lugar virtual para encontros e experimentações.</p>
+      <p>Completando <strong>20 anos de história em 2025</strong>, a comunidade do Papagaio Rinoceronte os convida a
+        conhecer.</p>
+      <button>Conhecer</button>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 O Papagaio Rinoceronte. Todos os direitos são compartilhados.</p>
+  </footer>
+  <div style="height: 80px;">
+    <span id="mensagem"></span>
+  </div>
+  <button id="acao">Recarregue!</button>
+
+  <script type="module">
+
+    window.registrarMensagem = (texto) => {
+
+      const spanMensagem = document.getElementById("mensagem");
+      if (!spanMensagem) return;
+
+      // Cria um novo parágrafo para a mensagem
+      const novaLinha = document.createElement("div");
+      novaLinha.textContent = texto;
+
+      // Adiciona a nova mensagem abaixo da anterior
+      spanMensagem.appendChild(novaLinha);
+
+      // Faz o scroll até o fim (caso haja overflow)
+      spanMensagem.scrollTop = spanMensagem.scrollHeight;
+    }
+  </script>
+
+  <script type="module">
+
+    import { Chocalho } from './chocalho.js';
+    import { Musica } from './musica.js';
+    import { Sumidouro } from './sumidouro.js';
+
+    window.chocalho = new Chocalho();
+    window.sumidouro = new Sumidouro(document.body);
+    window.musica = new Musica();
+
+    // Captura evento chacoalhou
+    document.addEventListener("chacoalhou", (event) => { 
+      window.sumidouro.apagarProximoCaractereUnico();
+      window.musica.tocarNota(440, 50);
+    });
+
+
+
+  </script>
+  <script>
+    function atualizar(periodos, versoes) {
+
+      let numero_de_acessos = parseInt(localStorage.getItem("numero_de_acessos")) || 0;
+
+      //numero_de_acessos = 0;
+
+      console.log("Número de acessos:", numero_de_acessos);
+
+      numero_de_acessos += 1; // Incrementa o número de acessos
+
+      // Salva o incremento
+      localStorage.setItem("numero_de_acessos", parseInt(numero_de_acessos));
+
+
+      // ################### PERÍODOS ###################
+
+      // Em acessos pares, sorteia o período, isto é, da segunda vez que entrar já muda o período
+      // Depois volta para regra base quando é o primeiro ou é impar
+      const sortear_periodo = (numero_de_acessos % 2 === 0);
+
+      console.log("Sortear período:", sortear_periodo);
+
+      let encontrou_periodo = false;
+
+      // Se não sortear o período iremos escolher a partir da hora atual em São Paulo, Brasil
+      if (!sortear_periodo) {
+
+        const agora = new Date(new Date().toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
+        let hora = agora.getHours();
+
+
+        const periodoAtual = periodos.find(p =>
+          (hora >= p.inicio && hora < p.fim) ||
+          (p.inicio > p.fim && (hora >= p.inicio || hora < p.fim))
+        );
+
+        // Será que não conseguiu encontrar um período?
+        if (periodoAtual) {
+          encontrou_periodo = true;
+          document.body.style.backgroundImage = `url(${periodoAtual.imagem})`;
+          document.documentElement.style.setProperty('--fundo-titulo', periodoAtual.cores.fundo_titulo);
+          document.documentElement.style.setProperty('--texto-titulo', periodoAtual.cores.texto_titulo);
+          document.documentElement.style.setProperty('--fundo-body', periodoAtual.cores.fundo_body);
+          document.documentElement.style.setProperty('--fundo-sobre', periodoAtual.cores.fundo_sobre);
+          document.documentElement.style.setProperty('--texto-sobre', periodoAtual.cores.texto_sobre);
+          document.documentElement.style.setProperty('--fundo-rodape', periodoAtual.cores.fundo_rodape);
+          document.documentElement.style.setProperty('--texto-rodape', periodoAtual.cores.texto_rodape);
+        }
+
+      }
+
+      // Se não encontrou um período, sorteia um período
+      if (!encontrou_periodo) {
+
+        document.querySelector("button#acao").textContent = "Chacoalhe!";
+
+        // Sorteia um período
+        const periodoSorteado = periodos[Math.floor(Math.random() * periodos.length)];
+        document.body.style.backgroundImage = `url(${periodoSorteado.imagem})`;
+        document.documentElement.style.setProperty('--fundo-titulo', periodoSorteado.cores.fundo_titulo);
+        document.documentElement.style.setProperty('--texto-titulo', periodoSorteado.cores.texto_titulo);
+        document.documentElement.style.setProperty('--fundo-body', periodoSorteado.cores.fundo_body);
+        document.documentElement.style.setProperty('--fundo-sobre', periodoSorteado.cores.fundo_sobre);
+        document.documentElement.style.setProperty('--texto-sobre', periodoSorteado.cores.texto_sobre);
+        document.documentElement.style.setProperty('--fundo-rodape', periodoSorteado.cores.fundo_rodape);
+        document.documentElement.style.setProperty('--texto-rodape', periodoSorteado.cores.texto_rodape);
+      }
+
+
+      // ################### VERSÕES ###################
+
+      // Sorteia uma versão
+      const versao = versoes[Math.floor(Math.random() * versoes.length)];
+
+      // Atualiza o conteúdo textual da página
+      document.querySelector("header h1").textContent = versao.titulo;
+      document.querySelector("section h2").textContent = "O Papagaio Rinoceronte";
+
+      const paragrafos = document.querySelectorAll("section p");
+      if (paragrafos.length >= 2) {
+        paragrafos[0].innerHTML = versao.corpo.split(/\\n|<br>/)[0] || "";
+        paragrafos[1].innerHTML = versao.corpo.split(/\\n|<br>/)[1] || "";
+      }
+
+      document.querySelector("section button").textContent = versao.botao;
+      document.querySelector("footer p").textContent = versao.rodape;
+    }
+
+
+
+    Promise.all([
+
+      // Períodos consistem em uma imagem de fundo e uma paleta de cores
+      fetch("./periodos.json").then(res => {
+        if (!res.ok) throw new Error("Erro ao carregar mulango.json");
+        return res.json();
+      }),
+
+      // Versões consistem os textos do titulo, corpo, botão e rodapé
+      // Temos várias maneiras de falar a mesma coisa
+      fetch("./versoes.json").then(res => {
+        if (!res.ok) throw new Error("Erro ao carregar jesango.json");
+        return res.json();
+      })
+    ]).then(([obj_periodos, obj_versoes]) => {
+      const periodos = obj_periodos.periodos;
+      const versoes = obj_versoes.versoes;
+
+      atualizar(periodos, versoes);
+      setInterval(() => atualizar(periodos, versoes), 60000);
+    }).catch(error => {
+      console.error("Erro:", error);
+    });
+  </script>
+
+
+</body>
+
+</html>
